@@ -1556,7 +1556,7 @@ public final class VideoDetailFragment
 
         final ReturnYouTubeDislikeInfo rydInfo = info.getRydInfo();
         final boolean isRydEnabled = prefs.getBoolean(
-                getString(R.string.return_youtube_dislike_enable_key), true);
+                getString(R.string.return_youtube_dislike_enable_key), false);
         final boolean overrideLikeCount = prefs.getBoolean(
                 getString(R.string.return_youtube_dislike_override_like_count_key), true);
         final boolean overrideViewCount = prefs.getBoolean(
