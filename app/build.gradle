@@ -16,8 +16,8 @@ android {
     namespace 'org.schabi.newpipe'
 
     defaultConfig {
-        applicationId "org.polymorphicshade.tubular"
-        resValue "string", "app_name", "Tubular"
+        applicationId "com.bluesmods.bluepipe"
+        resValue "string", "app_name", "BluePipe"
         minSdk 21
         targetSdk 33
         versionCode 996
@@ -42,19 +42,19 @@ android {
             if (normalizedWorkingBranch.isEmpty() || workingBranch == "master" || workingBranch == "dev") {
                 // default values when branch name could not be determined or is master or dev
                 applicationIdSuffix ".debug"
-                resValue "string", "app_name", "Tubular Debug"
+                resValue "string", "app_name", "BluePipe Debug"
             } else {
                 applicationIdSuffix ".debug." + normalizedWorkingBranch
-                resValue "string", "app_name", "Tubular " + workingBranch
-                archivesBaseName = 'Tubular_' + normalizedWorkingBranch
+                resValue "string", "app_name", "BluePipe " + workingBranch
+                archivesBaseName = 'BluePipe_' + normalizedWorkingBranch
             }
         }
 
         release {
             if (System.properties.containsKey('packageSuffix')) {
                 applicationIdSuffix System.getProperty('packageSuffix')
-                resValue "string", "app_name", "Tubular " + System.getProperty('packageSuffix')
-                archivesBaseName = 'Tubular_' + System.getProperty('packageSuffix')
+                resValue "string", "app_name", "BluePipe " + System.getProperty('packageSuffix')
+                archivesBaseName = 'BluePipe_' + System.getProperty('packageSuffix')
             }
             minifyEnabled true
             shrinkResources false // disabled to fix F-Droid's reproducible build
@@ -188,10 +188,10 @@ sonar {
 }
 
 dependencies {
-/** Desugaring **/
+    /** Desugaring **/
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.0.3'
 
-/** NewPipe libraries **/
+    /** NewPipe libraries **/
     // You can use a local version by uncommenting a few lines in settings.gradle
     // Or you can use a commit you pushed to GitHub by just replacing TeamNewPipe with your GitHub
     // name and the commit hash with the commit hash of the (pushed) commit you want to test
@@ -200,14 +200,14 @@ dependencies {
     implementation 'com.github.polymorphicshade:TubularExtractor:00577dc5910fbd73b65ea5d35c06fdf0cf9862d3'
     implementation 'com.github.TeamNewPipe:NoNonsense-FilePicker:5.0.0'
 
-/** Checkstyle **/
+    /** Checkstyle **/
     checkstyle "com.puppycrawl.tools:checkstyle:${checkstyleVersion}"
     ktlint 'com.pinterest:ktlint:0.45.2'
 
-/** Kotlin **/
+    /** Kotlin **/
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
 
-/** AndroidX **/
+    /** AndroidX **/
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -231,7 +231,7 @@ dependencies {
     implementation "androidx.work:work-rxjava3:${androidxWorkVersion}"
     implementation 'com.google.android.material:material:1.9.0'
 
-/** Third-party libraries **/
+    /** Third-party libraries **/
     // Instance state boilerplate elimination
     implementation "frankiesardo:icepick:${icepickVersion}"
     kapt "frankiesardo:icepick-processor:${icepickVersion}"
@@ -286,7 +286,7 @@ dependencies {
     // Date and time formatting
     implementation "org.ocpsoft.prettytime:prettytime:5.0.6.Final"
 
-/** Debugging **/
+    /** Debugging **/
     // Memory leak detection
     debugImplementation "com.squareup.leakcanary:leakcanary-object-watcher-android:${leakCanaryVersion}"
     debugImplementation "com.squareup.leakcanary:plumber-android:${leakCanaryVersion}"
@@ -295,7 +295,7 @@ dependencies {
     debugImplementation "com.facebook.stetho:stetho:${stethoVersion}"
     debugImplementation "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
 
-/** Testing **/
+    /** Testing **/
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-core:${mockitoVersion}"
     testImplementation "org.mockito:mockito-inline:${mockitoVersion}"

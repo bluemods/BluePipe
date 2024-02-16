@@ -140,7 +140,7 @@ class NewVersionWorker(
     companion object {
         private val DEBUG = MainActivity.DEBUG
         private val TAG = NewVersionWorker::class.java.simpleName
-        private const val NEWPIPE_API_URL = "https://api.github.com/repos/polymorphicshade/Tubular/releases/latest"
+        private const val NEWPIPE_API_URL = "https://api.github.com/repos/bluemods/BluePipe/releases/latest"
         private const val IS_MANUAL = "isManual"
 
         @JvmStatic

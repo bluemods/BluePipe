@@ -1,4 +1,4 @@
-<h1 align="center"><b>Tubular</b></h2>
+<h2 align="center"><b>BluePipe</b></h2>
 <h4 align="center">A fork of <a href="https://newpipe.net/">NewPipe</a> that implements <a href="https://sponsor.ajay.app/">SponsorBlock</a> and <a href="https://www.returnyoutubedislike.com/">ReturnYouTubeDislike</a>.</h4>
 
 ## Previews
