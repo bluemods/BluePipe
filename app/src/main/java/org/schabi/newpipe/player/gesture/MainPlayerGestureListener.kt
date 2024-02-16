@@ -160,7 +160,7 @@ class MainPlayerGestureListener(
     }
 
     override fun onScroll(
-        initialEvent: MotionEvent,
+        initialEvent: MotionEvent?,
         movingEvent: MotionEvent,
         distanceX: Float,
         distanceY: Float
@@ -168,6 +168,9 @@ class MainPlayerGestureListener(
 
         if (!playerUi.isFullscreen) {
             return false
+        }
+        if (initialEvent == null) {
+            return false // TODO revisit if it's a problem
         }
 
         // Calculate heights of status and navigation bars

@@ -167,7 +167,7 @@ class PopupPlayerGestureListener(
     }
 
     override fun onFling(
-        e1: MotionEvent,
+        e1: MotionEvent?,
         e2: MotionEvent,
         velocityX: Float,
         velocityY: Float
@@ -218,7 +218,7 @@ class PopupPlayerGestureListener(
     }
 
     override fun onScroll(
-        initialEvent: MotionEvent,
+        initialEvent: MotionEvent?,
         movingEvent: MotionEvent,
         distanceX: Float,
         distanceY: Float
@@ -234,13 +234,13 @@ class PopupPlayerGestureListener(
 
         isMoving = true
 
-        val diffX = (movingEvent.rawX - initialEvent.rawX)
+        val diffX = (movingEvent.rawX - (initialEvent?.rawX ?: 0f))
         val posX = (initialPopupX + diffX).coerceIn(
             0f,
             (playerUi.screenWidth - playerUi.popupLayoutParams.width).toFloat()
                 .coerceAtLeast(0f)
         )
-        val diffY = (movingEvent.rawY - initialEvent.rawY)
+        val diffY = (movingEvent.rawY - (initialEvent?.rawY ?: 0f))
         val posY = (initialPopupY + diffY).coerceIn(
             0f,
             (playerUi.screenHeight - playerUi.popupLayoutParams.height).toFloat()
